@@ -34,4 +34,22 @@ export class HeroesComponent implements OnInit  {
 	ngOnInit(): void {
 		this.getHeroes();
 	}
+
+  add(name: string): void{
+    name = name.trim();
+    // if name is empty
+    if (!name){
+      return;
+    }
+    this.heroService.create(name).then(hero => this.heroes.push(hero));
+    this.myHero = null;
+  }
+
+  delete(hero: Hero): void{
+    this.heroService.delete(hero.id)
+                    .then(() => {
+                      this.heroes = this.heroes.filter(h => h !== hero);
+                      if (this.myHero === hero){ this.myHero = null; }
+                    });
+  }
 }
