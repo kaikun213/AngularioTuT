@@ -1,6 +1,7 @@
 <div *ngIf="selectedHero">
   <h2>{{selectedHero.name}}'s details!</h2>
   <div><label>id: </label>{{selectedHero.id}}</div>
+  <div><label>clicks:</label>{{selectedHero.clicks}}</div>
   <div>
     <label>name: </label>
     <input [(ngModel)]="selectedHero.name" placeholder="name">

@@ -1,4 +1,7 @@
 <h3>Top Heroes</h3>
+
+<div class="container">
+
 <div class="grid grid-pad">
   <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero.id]" class="col-1-4">
     <div class="module hero">
@@ -7,3 +10,14 @@
   </a>
 </div>
 <hero-search></hero-search>
+
+</div>
+
+<div class="container">
+  <div class="chart-container">
+    <bar-chart [multi]="myData"></bar-chart>
+  </div>
+  <div class="chart-container">
+    <bar-chart [multi]="myData"></bar-chart>
+  </div>
+</div>

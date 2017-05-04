@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent }   from './dashboard.component';
 import { HeroesComponent }      from './heroes.component';
 import { MyHeroDetailComponent }  from './my-hero-detail.component';
+import { BarChartComponent } from './charts/bar-chart.component'
 
 const routes : Routes = [
   {
@@ -22,6 +23,10 @@ const routes : Routes = [
   {
     path:'detail/:id',
     component: MyHeroDetailComponent
+  },
+  {
+    path:'charts',
+    component: BarChartComponent
   },
 ]
 

@@ -10,10 +10,29 @@ import { Hero } from './hero';
 })
 
 export class DashboardComponent implements OnInit{
+  myData: any[] = [];
   heroes: Hero[] = [];
   constructor(private heroService : HeroService){}
 
   ngOnInit() : void {
-    this.heroService.getHeroes().then( heroes => this.heroes = heroes.slice(1,5));
+    this.heroService.getHeroes().then( heroes => {
+                                                  // push all data
+                                                  this.PushDataMulti(heroes);
+                                                  this.heroes = heroes.slice(1,5)
+                                                });
+  }
+
+  PushDataMulti(heroes:Hero[]): any[]{
+    return this.heroes.map(hero => this.myData = [...this.myData, {name:hero.name,
+                                                            series: [
+                                                              {
+                                                                name: "clicks",
+                                                                value: hero.clicks
+                                                              },
+                                                               {
+                                                                 name: "id",
+                                                                 value: hero.id,
+                                                               }
+                                                            ]}]);
   }
 }
